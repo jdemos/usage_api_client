@@ -6,8 +6,6 @@
 + [Use Cases](#use-cases)
 + 
 
-test!
-
 ## Introduction <a id="introduction" class="tall">&nbsp;</a>
 
 This Ruby client exercises Gnip's Usage API 2.0.
