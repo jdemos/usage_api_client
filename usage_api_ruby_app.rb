@@ -11,16 +11,16 @@ if __FILE__ == $0 # This script code is executed when running this file.
   cli_options = {}
 
   parser = OptionParser.new do |opts|
-    opts.on('-a', '--accountdetails', 'accountDetails - specify yml file path and name') do |a|
+    opts.on('-a ACCOUNT', '--accountdetails', 'accountDetails - specify yml file path and name') do |a|
       cli_options[:accountdetails] = a;
     end
-    opts.on('-b', '--bucket', 'Bucket (month or day)') do |b|
+    opts.on('-b BUCKET', '--bucket', 'Bucket (month or day)') do |b|
       cli_options[:bucket] = b;
     end
-    opts.on('-t', '--todate', 'toDate - is exclusive and UTC time (YYYYMMDDHHMM)') do |t|
+    opts.on('-t TODATE', '--todate', 'toDate - is exclusive and UTC time (YYYYMMDDHHMM)') do |t|
       cli_options[:todate] = t;
     end
-    opts.on('-f', '--fromdate', 'fromDate - is inclusive and UTC time (YYYYMMDDHHMM)') do |f|
+    opts.on('-f FROMDATE', '--fromdate', 'fromDate - is inclusive and UTC time (YYYYMMDDHHMM)') do |f|
       cli_options[:fromdate] = f;
     end
   end
@@ -29,7 +29,7 @@ if __FILE__ == $0 # This script code is executed when running this file.
 
   # Set default location of config accounts file
   if cli_options[:accountdetails].nil?
-    cli_options[:accountdetails] = "config/accounts.yml"
+    cli_options[:accountdetails] = "./config/accounts.yml"
   end
 
   client = GetUsage.new()
@@ -38,7 +38,7 @@ if __FILE__ == $0 # This script code is executed when running this file.
 
     response = client.build_request
 
-    puts response
+    p response.body
 end
 
 # - WRITE DATA TO FILE

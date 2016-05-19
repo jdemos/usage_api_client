@@ -14,9 +14,8 @@ class GetUsage
   def build_request()
     # create variable to store the root URL
     request = Faraday.new(url: "https://gnip-api.twitter.com")
-    request.basic_auth(@options['user_name'], @options['password'])
-    response = request.get "/metrics/usage/accounts/#{@options['account_name']}.json" # ?bucket=#{bucket}&fromdate=#{fromdate}&todate=#{todate}")
-
+    request.basic_auth(@options['account']['user_name'], @options['account']['password'])
+    response = request.get "/metrics/usage/accounts/#{@options['account']['account_name']}.json" # ?bucket=#{bucket}&fromdate=#{fromdate}&todate=#{todate}")
   end
 end
 
