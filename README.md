@@ -4,6 +4,9 @@
 + [Features](#features)
 + [Getting Started](#getting-started)
 + [Use Cases](#use-cases)
++ 
+
+test!
 
 ## Introduction <a id="introduction" class="tall">&nbsp;</a>
 
@@ -30,4 +33,10 @@ Default use case: Write full response to a file in 'Outbox'
 3. Summary - Usage summary for the current month (used and projected)
 4. Usage threshold alert
 5. Percent of user data compared to contracted amount
+
+## Todo:
+
+1. Wire up client to successfully make a call to Usage API (load config, structure faraday request, make API call)
+2. Options: Use optparser to take in the available API options directly through command line
+3. Load API response into JSON hash to add flexibility within client response
 
