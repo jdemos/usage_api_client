@@ -32,7 +32,7 @@ Default use case: Write full response to a file in 'Outbox'
 4. Percent of used data compared to contracted amount
 5. Usage threshold alert
 
-## Todo <a id="todo" class="tall">&nbsp;</a>
+## Todo <a id="todos" class="tall">&nbsp;</a>
 
 1. ~~Wire up client to successfully make a call to Usage API (load config, structure faraday request, make API call)~~
 2. Options: Use optparser to take in the available API options directly through command line
