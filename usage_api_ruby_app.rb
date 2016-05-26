@@ -23,6 +23,15 @@ if __FILE__ == $0 # This script code is executed when running this file.
     opts.on('-f FROMDATE', '--fromdate', 'fromDate - is inclusive and UTC time (YYYYMMDDHHMM)') do |f|
       cli_options[:fromdate] = f;
     end
+    opts.on('-p PRODUCT', '--product', 'product - specify which API (e.g. PowerTrack, Search API, etc.)') do |p|
+      cli_options[:product] = p;
+    end
+    opts.on('-s SOURCE', '--source', 'source - specify the source/publisher (e.g. Auttomattic, Twitter, etc.)') do |s|
+      cli_options[:source] = s;
+    end
+    opts.on('-o OUTBOX', '--outbox', 'outbox - specify the path where you want the results to go') do |o|
+      cli_options[:outbox] = o;
+    end
   end
 
   parser.parse!
@@ -32,13 +41,15 @@ if __FILE__ == $0 # This script code is executed when running this file.
     cli_options[:accountdetails] = "./config/accounts.yml"
   end
 
+  if
+
   client = GetUsage.new()
     # Load cli options from accounts.yml
     client.load_account_details(cli_options[:accountdetails])
 
     response = client.build_request
 
-    p response.body
+    puts response.body
 end
 
 # - WRITE DATA TO FILE
