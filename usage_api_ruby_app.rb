@@ -36,12 +36,12 @@ if __FILE__ == $0 # This script code is executed when running this file.
 
   parser.parse!
 
+  puts cli_options
+
   # Set default location of config accounts file
   if cli_options[:accountdetails].nil?
     cli_options[:accountdetails] = "./config/accounts.yml"
   end
-
-  if
 
   client = GetUsage.new()
     # Load cli options from accounts.yml
