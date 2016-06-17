@@ -36,7 +36,6 @@ if __FILE__ == $0 # This script code is executed when running this file.
 
   parser.parse!
 
-  puts cli_options
 
   # Set default location of config accounts file
   if cli_options[:accountdetails].nil?
@@ -49,11 +48,9 @@ if __FILE__ == $0 # This script code is executed when running this file.
 
     response = client.build_request
 
-    puts response.body
+    response_pp = client.response_to_json(response)
+    response_pp = client.pretty_print_response(response)
+
+    client.create_results_file(response_pp)
+
 end
-
-# - WRITE DATA TO FILE
-
-# # create timestamp for file naming
-# time = Time.new
-# timestamp = time.hour.to_s + "_" + time.min.to_s + "_" + time.sec.to_s
