@@ -24,10 +24,6 @@ class GetUsage
     @response = request.get "/metrics/usage/accounts/#{@options['account']['account_name']}.json" # ?bucket=#{bucket}&fromdate=#{fromdate}&todate=#{todate}")
   end
 
-  def response_to_json(@response)
-    return JSON.parse(response.body)
-  end
-
   # convert response to JSON
   def pretty_print_response(response)
     response_json = JSON.parse(response.body)
@@ -35,10 +31,10 @@ class GetUsage
   end
 
   # write full response to a file
-  def create_results_file(response_pp)
-    response_pp = JSON.pretty_generate(response_pp)
+  def create_results_file(response_json)
+    # response_pp = JSON.pretty_generate(response_json)
     file = File.open("./outbox/results_#{get_timestamp}.json", "w")
-    file.write "Below are the Usage results in JSON format: \n" +  "#{response_pp}"
+    file.write "Below are the Usage results in JSON format: \n" +  "#{response_json}"
     file.close
   end
 

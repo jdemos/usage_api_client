@@ -48,9 +48,8 @@ if __FILE__ == $0 # This script code is executed when running this file.
 
     response = client.build_request
 
-    response_pp = client.response_to_json(response)
-    response_pp = client.pretty_print_response(response)
+    response = client.pretty_print_response(response)
 
-    client.create_results_file(response_pp)
+    client.create_results_file(response)
 
 end
