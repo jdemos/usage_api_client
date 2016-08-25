@@ -32,7 +32,6 @@ class GetUsage
 
   # write full response to a file
   def create_results_file(response_json)
-    # response_pp = JSON.pretty_generate(response_json)
     file = File.open("./outbox/results_#{get_timestamp}.json", "w")
     file.write "Below are the Usage results in JSON format: \n" +  "#{response_json}"
     file.close
@@ -40,7 +39,9 @@ class GetUsage
 
   # write summary file - JSON converted to readable text
   def create_summary_file(response_json)
-
+    file = File.open("./outbox/summary_#{get_timestamp}.txt", "w")
+    file.write "Below is your Usage Summary: \n" + "#{response_json}"
+    file.close
   end
 
 end

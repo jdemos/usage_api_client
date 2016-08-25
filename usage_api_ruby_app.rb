@@ -26,11 +26,14 @@ if __FILE__ == $0 # This script code is executed when running this file.
     opts.on('-p PRODUCT', '--product', 'product - specify which API (e.g. PowerTrack, Search API, etc.)') do |p|
       cli_options[:product] = p;
     end
-    opts.on('-s SOURCE', '--source', 'source - specify the source/publisher (e.g. Auttomattic, Twitter, etc.)') do |s|
+    opts.on('-s SOURCE', '--source', 'source - specify the source/publisher (e.g. Auttomattic, Twitter)') do |s|
       cli_options[:source] = s;
     end
     opts.on('-o OUTBOX', '--outbox', 'outbox - specify the path where you want the results to go') do |o|
       cli_options[:outbox] = o;
+    end
+    opts.on('-u USECASE', '--usecase', 'usecase - specify which use case you want (optional)') do |u|
+      cli_options[:usecase] = u;
     end
   end
 
@@ -43,13 +46,18 @@ if __FILE__ == $0 # This script code is executed when running this file.
   end
 
   client = GetUsage.new()
-    # Load cli options from accounts.yml
-    client.load_account_details(cli_options[:accountdetails])
 
-    response = client.build_request
+  # Load cli options from accounts.yml
+  client.load_account_details(cli_options[:accountdetails])
 
-    response = client.pretty_print_response(response)
+  response = client.build_request
 
+  response = client.pretty_print_response(response)
+
+  if cli_options[:usecase] == 'summary'
+    client.create_summary_file(response)
+  elsif
     client.create_results_file(response)
+  end
 
 end
