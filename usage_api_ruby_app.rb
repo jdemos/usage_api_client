@@ -26,7 +26,7 @@ if __FILE__ == $0 # This script code is executed when running this file.
     opts.on('-p PRODUCT', '--product', 'product - specify which API (e.g. PowerTrack, Search API, etc.)') do |p|
       cli_options[:product] = p;
     end
-    opts.on('-s SOURCE', '--source', 'source - specify the source/publisher (e.g. Auttomattic, Twitter)') do |s|
+    opts.on('-s SOURCE', '--source', 'source - specify the source/publisher (e.g. Automattic, Twitter)') do |s|
       cli_options[:source] = s;
     end
     opts.on('-o OUTBOX', '--outbox', 'outbox - specify the path where you want the results to go') do |o|
